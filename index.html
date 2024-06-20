@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="parentdiv">
+        <div class="bgdiv">
+            <img class="bgimg" src="image/bg.jpeg" alt="background">
+        </div>
+
+        <div class="login">
+            <h1 class="txt">Login Page</h1>
+            <label class="label1" for="email">Enter Your Email Address</label>
+            <input class="box" type="email" placeholder="" id="mail" name="Email" required>
+
+            <label class="label1" for="psw"> <br>Enter Your Password</label>
+            <input class="box" type="password" placeholder="" id="pw" name="Password" required> 
+            <button class="btn" onclick="Validation()" type="submit">Login</button>
+        </div>
+    </div>
+
+    <script>
+        function Validation() 
+        {
+            const email = document.getElementById("mail").value;
+            const password = document.getElementById("pw").value;
+            console.log(email);
+            console.log(password);
+            const valid_email = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;   
+            const min = 8;
+            const valid_password = /^[a-zA-Z\d@$!%*?&]{8,}$/;
+
+            if (!valid_email.test(email)) 
+            {
+                alert("Invalid Email Format.");
+            }
+            else if (!valid_password.test(password) || password.length < 8)
+            {
+                alert("Invalid Password Format.");
+            }
+            else if (!valid_email.test(email) && !valid_password.test(password) || password.length < 8)
+            {
+                alert("Invalid Email and Password Format.");
+            }
+            else
+            {
+                alert("Login Successful.");
+            }
+        }
+    </script>
+
+</body>
+</html>
